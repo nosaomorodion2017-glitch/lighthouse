@@ -1,0 +1,14 @@
+[
+  {"id": "acc-001", "name": "Northwind Logistics", "plan": "Enterprise", "industry": "Logistics",     "owner": "Priya Shah",   "mrr": 18400, "renewal_date": "2026-11-28"},
+  {"id": "acc-002", "name": "Bluefin Health",      "plan": "Growth",     "industry": "Healthcare",    "owner": "Tom Reyes",    "mrr": 7200,  "renewal_date": "2027-03-01"},
+  {"id": "acc-003", "name": "Copperleaf Retail",   "plan": "Enterprise", "industry": "Retail",        "owner": "Priya Shah",   "mrr": 22100, "renewal_date": "2027-01-15"},
+  {"id": "acc-004", "name": "Driftwood Studios",   "plan": "Starter",    "industry": "Media",         "owner": "Ade Okafor",   "mrr": 900,   "renewal_date": "2026-12-05"},
+  {"id": "acc-005", "name": "Evergreen Energy",    "plan": "Enterprise", "industry": "Energy",        "owner": "Tom Reyes",    "mrr": 15600, "renewal_date": "2026-12-02"},
+  {"id": "acc-006", "name": "Foxglove Finance",    "plan": "Growth",     "industry": "Finance",       "owner": "Ade Okafor",   "mrr": 6800,  "renewal_date": "2027-05-20"},
+  {"id": "acc-007", "name": "Granite Works",       "plan": "Growth",     "industry": "Manufacturing", "owner": "Priya Shah",   "mrr": 5400,  "renewal_date": "2027-02-10"},
+  {"id": "acc-008", "name": "Harbor Schools",      "plan": "Starter",    "industry": "Education",     "owner": "Ade Okafor",   "mrr": 1200,  "renewal_date": "2027-08-01"},
+  {"id": "acc-009", "name": "Ironclad Security",   "plan": "Enterprise", "industry": "Security",      "owner": "Tom Reyes",    "mrr": 19800, "renewal_date": "2027-04-12"},
+  {"id": "acc-010", "name": "Juniper Travel",      "plan": "Growth",     "industry": "Travel",        "owner": "Priya Shah",   "mrr": 4300,  "renewal_date": "2026-11-20"},
+  {"id": "acc-011", "name": "Kestrel Analytics",   "plan": "Growth",     "industry": "Software",      "owner": "Tom Reyes",    "mrr": 8900,  "renewal_date": "2027-06-30"},
+  {"id": "acc-012", "name": "Lumen Hospitality",   "plan": "Starter",    "industry": "Hospitality",   "owner": "Ade Okafor",   "mrr": 1500,  "renewal_date": "2027-01-04"}
+]

@@ -1,0 +1,33 @@
+ticket_id,account_id,subject,priority,status,opened_at,closed_at
+T-1041,acc-001,Route optimiser times out for large depots,urgent,open,2026-11-04,
+T-1038,acc-001,SSO users logged out every hour,high,open,2026-10-29,
+T-1033,acc-001,Export to ERP missing October invoices,high,pending,2026-10-22,
+T-1029,acc-001,Driver app crash on Android 15,normal,closed,2026-10-15,2026-10-20
+T-1019,acc-001,Request: bulk edit of delivery windows,low,open,2026-10-02,
+T-1040,acc-002,Question about audit log retention,low,closed,2026-11-02,2026-11-03
+T-1025,acc-002,Add second admin,low,closed,2026-10-09,2026-10-09
+T-1042,acc-003,Checkout dashboard shows wrong currency,high,open,2026-11-05,
+T-1036,acc-003,Slow report generation at month end,normal,open,2026-10-27,
+T-1027,acc-003,API rate limit increase,normal,closed,2026-10-13,2026-10-16
+T-1021,acc-003,Store manager role permissions,low,closed,2026-10-05,2026-10-07
+T-1032,acc-004,Invoice address change,low,closed,2026-10-21,2026-10-22
+T-1043,acc-005,Meter data import failing since Monday,urgent,open,2026-11-06,
+T-1039,acc-005,Alerts sent to wrong team,high,open,2026-10-30,
+T-1034,acc-005,Need help configuring new region,normal,pending,2026-10-23,
+T-1030,acc-005,Dashboard slow to load,normal,closed,2026-10-16,2026-10-21
+T-1026,acc-006,Webhook signature docs unclear,low,closed,2026-10-12,2026-10-13
+T-1044,acc-007,Scheduled reports not sending,high,open,2026-11-07,
+T-1035,acc-007,CSV import mapping question,normal,open,2026-10-26,
+T-1028,acc-007,User cannot reset password,normal,closed,2026-10-14,2026-10-14
+T-1031,acc-008,Add teachers in bulk,low,closed,2026-10-19,2026-10-20
+T-1037,acc-009,SAML certificate rotation,normal,closed,2026-10-28,2026-10-29
+T-1024,acc-009,Feature request: custom roles,low,open,2026-10-08,
+T-1045,acc-010,Booking sync duplicates trips,high,open,2026-11-08,
+T-1022,acc-010,Mobile layout broken on tablets,normal,closed,2026-10-06,2026-10-12
+T-1020,acc-011,Question about usage-based pricing,low,closed,2026-10-03,2026-10-03
+T-1018,acc-012,Change billing contact,low,closed,2026-09-29,2026-09-30
+T-1046,acc-002,Two-factor codes delayed,normal,closed,2026-11-09,2026-11-09
+T-1047,acc-003,SSO login loop for store staff,high,open,2026-11-09,
+T-1048,acc-007,Production line sensor data delayed,urgent,open,2026-11-09,
+T-1049,acc-010,Refunds not reflected in reports,normal,open,2026-11-03,
+T-1050,acc-010,Agent seats missing after plan upgrade,high,pending,2026-10-28,

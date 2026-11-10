@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lighthouse · Account Health</title>
+  <meta name="description" content="Internal platform that joins CRM, support and usage data into one explainable account health view.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Cpath d='M16 6l4 20h-8z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="./">
+        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" class="brand-bg"/><path d="M16 6l4 20h-8z" fill="#fff"/></svg>
+        <span class="brand-text">Lighthouse</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="./" aria-current="page">Dashboard</a>
+        <a href="about.html">About this project</a>
+      </nav>
+      <div class="refresh">
+        <span id="refreshed" class="muted small">Loading…</span>
+        <button id="refresh-btn" class="btn btn-ghost" type="button">Refresh data</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-head">
+      <div>
+        <h1>Account health</h1>
+        <p class="muted">CRM, support desk and product usage in one view. Worst health first.</p>
+      </div>
+    </div>
+
+    <div id="banner" class="banner" hidden></div>
+
+    <section class="kpis" aria-label="Key numbers">
+      <article class="card kpi"><h2 class="kpi-label">Monthly recurring revenue</h2><p class="kpi-value" id="kpi-mrr">—</p><p class="kpi-sub muted" id="kpi-accounts">&nbsp;</p></article>
+      <article class="card kpi kpi-risk"><h2 class="kpi-label">MRR at risk</h2><p class="kpi-value" id="kpi-risk">—</p><p class="kpi-sub muted" id="kpi-risk-sub">&nbsp;</p></article>
+      <article class="card kpi"><h2 class="kpi-label">Open tickets</h2><p class="kpi-value" id="kpi-tickets">—</p><p class="kpi-sub muted" id="kpi-urgent">&nbsp;</p></article>
+      <article class="card kpi"><h2 class="kpi-label">Accounts by health</h2><div class="dist" id="kpi-dist" role="img"></div><ul class="legend" id="kpi-legend"></ul></article>
+    </section>
+
+    <section class="grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Support tickets per week</h2><ul class="legend inline"><li><i class="sw sw-opened"></i>Opened</li><li><i class="sw sw-closed"></i>Closed</li></ul></header>
+        <div id="chart-weekly" class="chart"></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Where to look first</h2></header>
+        <ol id="focus" class="focus"></ol>
+      </article>
+    </section>
+
+    <section class="card table-card" aria-labelledby="accounts-title">
+      <header class="card-head table-toolbar">
+        <h2 id="accounts-title">Accounts <span class="count" id="acct-count"></span></h2>
+        <div class="toolbar">
+          <div class="seg" role="radiogroup" aria-label="Filter by health" id="label-filter">
+            <button type="button" role="radio" aria-checked="true" data-label="">All</button>
+            <button type="button" role="radio" aria-checked="false" data-label="at-risk">At risk</button>
+            <button type="button" role="radio" aria-checked="false" data-label="watch">Watch</button>
+            <button type="button" role="radio" aria-checked="false" data-label="healthy">Healthy</button>
+          </div>
+          <label class="search"><span class="sr">Search accounts</span><input id="search" type="search" placeholder="Search name, owner, industry" maxlength="100" autocomplete="off"></label>
+          <label class="select"><span class="sr">Sort by</span>
+            <select id="sort">
+              <option value="health">Sort: Health</option>
+              <option value="mrr">Sort: MRR</option>
+              <option value="renewal">Sort: Renewal</option>
+              <option value="name">Sort: Name</option>
+            </select>
+          </label>
+        </div>
+      </header>
+      <div class="table-scroll">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Account</th>
+              <th scope="col">Owner</th>
+              <th scope="col" class="num">MRR</th>
+              <th scope="col">Health</th>
+              <th scope="col" class="num">Open tickets</th>
+              <th scope="col">Active users (8 wk)</th>
+              <th scope="col" class="num">Renews in</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <p id="empty" class="empty muted" hidden>No accounts match these filters.</p>
+      </div>
+    </section>
+
+    <section class="card sources" aria-labelledby="sources-title">
+      <header class="card-head"><h2 id="sources-title">Data sources</h2><a class="small" href="metrics">Prometheus metrics →</a></header>
+      <ul id="sources" class="source-list"></ul>
+      <ul id="warnings" class="warnings"></ul>
+    </section>
+  </main>
+
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="d-name" hidden>
+    <header class="drawer-head">
+      <div>
+        <p class="muted small" id="d-meta"></p>
+        <h2 id="d-name"></h2>
+      </div>
+      <button type="button" class="btn btn-icon" id="d-close" aria-label="Close">✕</button>
+    </header>
+    <div class="drawer-body" id="d-body"></div>
+  </aside>
+</body>
+</html>

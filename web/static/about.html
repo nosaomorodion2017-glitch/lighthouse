@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lighthouse · About this project</title>
+  <meta name="description" content="A working internal platform built to show how I'd do this role: Go services, connected data, dashboards, LLM features, specs and tests.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Cpath d='M16 6l4 20h-8z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="./">
+        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" class="brand-bg"/><path d="M16 6l4 20h-8z" fill="#fff"/></svg>
+        <span class="brand-text">Lighthouse</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="./">Dashboard</a>
+        <a href="about.html" aria-current="page">About this project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap about">
+    <section class="hero">
+      <p class="eyebrow">A working sample for your engineering role</p>
+      <h1>Hi, I'm Nosa Omorodion. I built a small internal platform to show how I'd work.</h1>
+      <p>
+        Your post says you build internal systems to the same standard as public products:
+        specified, tested, reviewed and observable. So instead of only sending a CV, I built one.
+        <strong>Lighthouse</strong> is a Go service that joins three data sources into one account-health
+        view. It has a dashboard for non-technical users, an LLM-written account brief, and a spec,
+        tests and metrics to go with it.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="./">Open the live dashboard</a>
+        <a class="btn" href="https://github.com/nosaomorodion2017-glitch/lighthouse">Read the code on GitHub</a>
+        <a class="btn" href="https://github.com/nosaomorodion2017-glitch/lighthouse/blob/main/docs/SPEC.md">Read the spec</a>
+      </div>
+    </section>
+
+    <h2>What you asked for, and where to find it</h2>
+    <table class="map">
+      <thead><tr><th>From the job post</th><th>In this project</th></tr></thead>
+      <tbody>
+        <tr><td>Design and deliver systems and platforms, including intuitive UIs</td>
+            <td>One deployable binary: Go API plus an embedded dashboard. Filter, search and sort, a click-through account drawer, works on a phone, supports dark mode and keyboard use.</td></tr>
+        <tr><td>Build Go services and APIs that connect many data sources</td>
+            <td>A <code>Source</code> interface with CRM (JSON), support desk (CSV) and analytics (column-shaped JSON) adapters. They are fetched concurrently, each with its own timeout and panic recovery, so one bad source can't stop the others. Uses only the Go standard library. <code>internal/source</code>, <code>internal/aggregate</code></td></tr>
+        <tr><td>Design data models and architecture for connected systems</td>
+            <td><code>Account</code> is the root and tickets and usage reference it. Views are derived, never stored. Records that point at unknown accounts are dropped <em>and reported</em>, not hidden. <code>internal/model</code>, SPEC §5</td></tr>
+        <tr><td>Turn data into clear dashboards and visualisations</td>
+            <td>KPI tiles, health distribution, weekly ticket trend, usage sparklines and per-account charts. Hand-built SVG, accessible labels, no chart library.</td></tr>
+        <tr><td>Build LLM-powered features into everyday workflows</td>
+            <td>"Generate brief" on every account calls Claude with only the platform's facts. If there's no key or the call fails, it falls back to a rule-based brief. Briefs are cached per data version to keep cost down. <code>internal/insight</code></td></tr>
+        <tr><td>Write specs, estimate work and deliver to agreed criteria</td>
+            <td><code>docs/SPEC.md</code>: problem, users, goals and non-goals, 10 requirements, each with acceptance criteria and the test that proves it, plus estimates and risks.</td></tr>
+        <tr><td>Set a high bar in code review, testing and documentation</td>
+            <td>Table-driven unit tests, an <code>httptest</code> API suite, a fake Claude server, and timeout, panic and partial-failure tests. Run with <code>go test -race ./...</code>. Every package has doc comments that explain <em>why</em>.</td></tr>
+        <tr><td>Observable</td>
+            <td><code>/healthz</code>, <code>/readyz</code> (which reports stale data), Prometheus <code>/metrics</code> per route and per source, JSON logs with request IDs, and graceful shutdown.</td></tr>
+        <tr><td>Partner with non-technical colleagues to turn needs into tools</td>
+            <td>The health score is <em>explainable</em>: every point lost shows a plain-English reason, so a CS lead can check it by hand and argue with the weights.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How I work</h2>
+    <div class="steps">
+      <article class="card"><p class="n">01</p><h3>Spec first</h3><p>Agree the problem, the users and what "done" means before writing code.</p></article>
+      <article class="card"><p class="n">02</p><h3>Small, tested steps</h3><p>Every acceptance criterion maps to a test. Pure functions where possible.</p></article>
+      <article class="card"><p class="n">03</p><h3>Fail visibly</h3><p>Partial data is shown as partial. Nothing gets dropped silently.</p></article>
+      <article class="card"><p class="n">04</p><h3>Own it in production</h3><p>Health checks, metrics and logs ship with the feature, not after it.</p></article>
+    </div>
+
+    <h2>What I'd do next</h2>
+    <ul class="plain">
+      <li>Back-test the health weights against last year's churned accounts.</li>
+      <li>Build an eval set of 20 accounts with expected briefs, and run it in CI.</li>
+      <li>Swap the file adapters for real CRM and help-desk APIs. Only <code>internal/source</code> changes.</li>
+    </ul>
+
+    <h2>Get in touch</h2>
+    <div class="contact">
+      <a class="btn" href="https://github.com/nosaomorodion2017-glitch">GitHub</a>
+    </div>
+  </main>
+</body>
+</html>

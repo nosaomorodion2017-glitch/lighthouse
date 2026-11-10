@@ -1,0 +1,13 @@
+# One-click deploy on Render: https://render.com/deploy
+services:
+  - type: web
+    name: lighthouse
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: REFRESH_INTERVAL
+        value: 5m
+      - key: ANTHROPIC_API_KEY
+        sync: false # optional: set in the Render dashboard to enable Claude briefs
